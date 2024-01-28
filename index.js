@@ -165,7 +165,7 @@ class Graph{
                 cell.draw()))
     }
 
-    activateVertexPixels(x,y){
+    activateVertexPixelsRelative(x,y){
         const xi = Math.floor(x/Vertex.width);
         const yi = Math.floor(y/Vertex.height);
 
@@ -174,6 +174,11 @@ class Graph{
                 this.activateVertex(xi,yi);
             }
         }
+    }
+
+    activateVertexPixels(x,y){
+        let rect = canvas.getBoundingClientRect();
+        this.activateVertexPixelsRelative(x-rect.left, y-rect.top);
     }
 
     activateVertex(x, y){
@@ -190,7 +195,7 @@ class Graph{
                 vertex.setState('0')))
     }
 
-    selectVertexPixels(x,y){
+    selectVertexPixelsRelative(x,y){
         const xi = Math.floor(x/Vertex.width);
         const yi = Math.floor(y/Vertex.height);
 
@@ -199,6 +204,11 @@ class Graph{
                 this.selectVertex(xi,yi);
             }
         }
+    }
+
+    selectVertexPixels(x,y){
+        let rect = canvas.getBoundingClientRect();
+        this.selectVertexPixelsRelative(x-rect.left, y-rect.top);
     }
 
     selectVertex(x,y){
