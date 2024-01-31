@@ -21,10 +21,10 @@ class Vertex{
     draw(){
         switch(this.state){
             case '1': 
-                c.fillStyle = 'white';
+                c.fillStyle = 'grey';
                 break;
             case '0': 
-                c.fillStyle = 'black';
+                c.fillStyle = 'white';
                 break;
             default: 
                 c.fillStyle = 'yellow';
@@ -182,7 +182,11 @@ class Graph{
     }
 
     activateVertex(x, y){
-        this.map[y][x].setState('1');
+        //console.log(x,y);
+        console.log(x,y)
+        if(y < this.map.length && y > -1 && x < this.map[0].length && x > -1){
+            this.map[y][x].setState('1');
+        }
     }
 
     deactivateVertex(x, y){
@@ -212,7 +216,10 @@ class Graph{
     }
 
     selectVertex(x,y){
-        this.map[y][x].setSelected('true');
+        console.log(x,y)
+        if(y < this.map.length && y > -1 && x < this.map[0].length && x > -1){
+            this.map[y][x].setSelected('true');
+        }
     }
 
     deselectVertex(x,y){
@@ -264,7 +271,7 @@ addEventListener("click", (event) => {
 })
 
 addEventListener("keypress", (event) => {
-    console.log(event.key);
+    //console.log(event.key);
     switch(event.key){
         case("n"):
             graph.update();
