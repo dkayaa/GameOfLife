@@ -3,43 +3,78 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="conways game of life">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Conway's Game of Life</title>
     <style>
       body{
           margin: 0;
-          background-color: gray;
+          background-color: black;
+          height:1000px;
       }
 
-      .myBox {
-      border: none;
-      font: 24px/36px sans-serif;
-      width: 2000px;
-      height: 2000px;
-      background-color: lightblue;
+      .canvas-box {
+      border:1px;
+      padding: 1px;
+      width: 50%;
+      height:1000px;
+      overflow: scroll;
+      background-color: darkslategray;
+
       }     
 
-      .box {
-      width: 1000px;
-      height: 1000px;
-      border: 1px solid #ccc;
+      .scroll-box {
+      border: 1px;
+      width: 100%;
+      height: 90%;
       overflow: scroll;
       position: relative;
+      display: flex;
+      justify-content: center;
+      }
+
+      .title-bar{
+        width: 100%;
+        height: 5%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .title-logo{
+        width:750px;
+        padding:10px;
+      }
+      
+      .title-logo img{
+        width:100%;
+        height:100%;
+        object-fit: contain;
+      }
+
+      .footer-bar {
+        height: 5%;
       }
 
     </style>   
   </head>
   <body>
-    <main>
-        <h1>Conway's Game of Life</h1>     
-          <div class="box">
-            <!-- <div class="myBox"> -->
-              <canvas class="myBox"></canvas>
-              <script src="./index.js"></script>
-            <!-- </div> -->
+    <div class="main">
+        <div id="title" class="title-bar">
+          <div class="title-logo">
+            <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
+              <img src="https://see.fontimg.com/api/renderfont4/1GL6j/eyJyIjoiZnMiLCJoIjo3NCwidyI6MjAwMCwiZnMiOjM3LCJmZ2MiOiIjRkZGRkZGIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q29ud2F5cyBHYW1lIG9mIExpZmU/leegione.png">
+            </a>
           </div>
-
-        <h2>By Deniz</h2>
-    </main>
+        </div>
+        <div id="scroll" class="scroll-box">
+          <div class="canvas-box">
+            <canvas></canvas>
+            <script src="./index.js"></script>
+          </div>
+        </div>
+        <div id="footer" class="footer-bar">
+          <h2>Made By Deniz Dilsiz</h2>
+        </div>
+    </div>
   </body>
 </html>

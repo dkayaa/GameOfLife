@@ -21,10 +21,10 @@ class Vertex{
     draw(){
         switch(this.state){
             case '1': 
-                c.fillStyle = 'grey';
+                c.fillStyle = 'white';
                 break;
             case '0': 
-                c.fillStyle = 'white';
+                c.fillStyle = 'black';
                 break;
             default: 
                 c.fillStyle = 'yellow';
@@ -189,6 +189,37 @@ class Graph{
         }
     }
 
+    toggleVertexPixels(x,y){
+        let rect = canvas.getBoundingClientRect();
+        this.toggleVertexPixelsRelative(x-rect.left, y-rect.top);       
+    }
+
+    toggleVertexPixelsRelative(x,y){
+        const xi = Math.floor(x/Vertex.width);
+        const yi = Math.floor(y/Vertex.height);
+
+        if(x < this.map[0].length*Vertex.width){
+            if(y < this.map.length*Vertex.height){
+                this.toggleVertex(xi,yi);
+            }
+        }
+    }
+
+    toggleVertex(x, y){
+        //console.log(x,y);
+        console.log(x,y)
+        if(y < this.map.length && y > -1 && x < this.map[0].length && x > -1){
+            switch(this.map[y][x].getState()){
+                case('1'): 
+                    this.map[y][x].setState('0');
+                    break;
+                case('0'):
+                    this.map[y][x].setState('1');
+                    break;
+            }
+        }
+    }
+
     deactivateVertex(x, y){
         this.map[y][x].setState('0');
     }
@@ -250,8 +281,8 @@ class Graph{
 
 
 const graph = new Graph({
-    height:100,
-    width:200
+    height:500,
+    width:500
 })
 
 addEventListener("mousemove",(event) => {
@@ -266,7 +297,7 @@ addEventListener("mousemove",(event) => {
 })
 
 addEventListener("click", (event) => {
-    graph.activateVertexPixels(event.clientX, event.clientY);
+    graph.toggleVertexPixels(event.clientX, event.clientY);
 
 })
 
