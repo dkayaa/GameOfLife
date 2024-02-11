@@ -4,77 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="conways game of life">
+    <meta name="author" content="Deniz Dilsiz">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Conway's Game of Life</title>
-    <style>
-      body{
-          margin: 0;
-          background-color: black;
-          height:1000px;
-      }
-
-      .canvas-box {
-      border:1px;
-      padding: 1px;
-      width: 50%;
-      height:1000px;
-      overflow: scroll;
-      background-color: darkslategray;
-
-      }     
-
-      .scroll-box {
-      border: 1px;
-      width: 100%;
-      height: 90%;
-      overflow: scroll;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      }
-
-      .title-bar{
-        width: 100%;
-        height: 5%;
-        display: flex;
-        justify-content: center;
-      }
-
-      .title-logo{
-        width:750px;
-        padding:10px;
-      }
-      
-      .title-logo img{
-        width:100%;
-        height:100%;
-        object-fit: contain;
-      }
-
-      .footer-bar {
-        height: 5%;
-      }
-
-    </style>   
+    <link rel="stylesheet" href="/style.css">  
   </head>
   <body>
-    <div class="main">
-        <div id="title" class="title-bar">
-          <div class="title-logo">
-            <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
-              <img src="https://see.fontimg.com/api/renderfont4/1GL6j/eyJyIjoiZnMiLCJoIjo3NCwidyI6MjAwMCwiZnMiOjM3LCJmZ2MiOiIjRkZGRkZGIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q29ud2F5cyBHYW1lIG9mIExpZmU/leegione.png">
-            </a>
-          </div>
-        </div>
-        <div id="scroll" class="scroll-box">
-          <div class="canvas-box">
-            <canvas></canvas>
-            <script src="./index.js"></script>
-          </div>
-        </div>
-        <div id="footer" class="footer-bar">
-          <h2>Made By Deniz Dilsiz</h2>
-        </div>
-    </div>
+    <header>
+      <figure href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">
+        <img src="https://see.fontimg.com/api/renderfont4/1GL6j/eyJyIjoiZnMiLCJoIjo3NCwidyI6MjAwMCwiZnMiOjM3LCJmZ2MiOiIjRkZGRkZGIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/Q29ud2F5cyBHYW1lIG9mIExpZmU/leegione.png">
+      </figure>
+    </header>
+    <section class="graph">
+      <ul class="graph__ul">
+        <li class="graph__ul__li">      
+          <button class="graph__ul__li__button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 17v-10l9 5.146-9 4.854z"/></svg>
+          </button>
+        </li>
+        <li class="graph__ul__li">      
+          <button class="graph__ul__li__button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.434 20.467c.552-.204 1.077-.462 1.569-.771l1.189 1.618c-.706.457-1.47.829-2.278 1.107l-.48-1.954zm-10.105-3.424l-1.2 1.775c.421.557.904 1.062 1.426 1.526l1.082-1.709c-.497-.475-.938-1.009-1.308-1.592zm-1.176-6.043c.711-3.972 4.174-7 8.347-7 4.687 0 8.5 3.813 8.5 8.5 0 2.313-.932 4.411-2.436 5.945l1.197 1.627c1.993-1.911 3.239-4.594 3.239-7.572 0-5.798-4.703-10.5-10.5-10.5-5.288 0-9.649 3.914-10.377 9h-3.123l4 5.917 4-5.917h-2.847zm5.745 9.574c-.582-.189-1.139-.429-1.658-.733l-1.065 1.683c.688.409 1.424.739 2.201.983l.522-1.933zm3.592.364c-.839.097-1.035.066-1.623.021l-.533 1.972c.946.105 1.661.092 2.636-.045l-.48-1.948z"/></svg>
+          </button>
+        </li>
+      </ul>
+      <div class="canvas-box">
+        <canvas></canvas>
+        <script src="./index.js"></script>
+      </div>
+    </section>
+    <footer>
+        <ul class="footer__ul">
+          <li>Conway's Game of Life by Deniz Dilsiz</li>
+          <li>A website to explore the many interesting entities in Conway's world.</li>
+          <li>
+            <div class="footer-links">
+              <a href="https://github.com/dkayaa/GameOfLife">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 6c-3.313 0-6 2.686-6 6 0 2.651 1.719 4.9 4.104 5.693.3.056.396-.13.396-.289v-1.117c-1.669.363-2.017-.707-2.017-.707-.272-.693-.666-.878-.666-.878-.544-.373.041-.365.041-.365.603.042.92.619.92.619.535.917 1.403.652 1.746.499.054-.388.209-.652.381-.802-1.333-.152-2.733-.667-2.733-2.965 0-.655.234-1.19.618-1.61-.062-.153-.268-.764.058-1.59 0 0 .504-.161 1.65.615.479-.133.992-.199 1.502-.202.51.002 1.023.069 1.503.202 1.146-.776 1.648-.615 1.648-.615.327.826.121 1.437.06 1.588.385.42.617.955.617 1.61 0 2.305-1.404 2.812-2.74 2.96.216.186.412.551.412 1.111v1.646c0 .16.096.347.4.288 2.383-.793 4.1-3.041 4.1-5.691 0-3.314-2.687-6-6-6z"/></svg>
+              </a>
+              <span>&middot;</span> 
+              <a href="www.linkedin.com/in/denizkd">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+            </div>
+          </li>
+        </ul>
+    </footer>
   </body>
 </html>

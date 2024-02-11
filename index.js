@@ -103,10 +103,15 @@ class Vertex{
 
 class Graph{
 
+    height = 0;
+    width = 0;
+    map = [];
+    auto_mode = false;
+
     constructor({height, width, map=[]}){
         this.height = height; 
         this.width = width;
-        this.map = map
+        this.map = map;
 
         for(let i = 0; i < height; i++){
             this.map.push([]);
@@ -183,7 +188,6 @@ class Graph{
 
     activateVertex(x, y){
         //console.log(x,y);
-        console.log(x,y)
         if(y < this.map.length && y > -1 && x < this.map[0].length && x > -1){
             this.map[y][x].setState('1');
         }
@@ -207,7 +211,6 @@ class Graph{
 
     toggleVertex(x, y){
         //console.log(x,y);
-        console.log(x,y)
         if(y < this.map.length && y > -1 && x < this.map[0].length && x > -1){
             switch(this.map[y][x].getState()){
                 case('1'): 
@@ -247,7 +250,7 @@ class Graph{
     }
 
     selectVertex(x,y){
-        console.log(x,y)
+        //console.log(x,y)
         if(y < this.map.length && y > -1 && x < this.map[0].length && x > -1){
             this.map[y][x].setSelected('true');
         }
@@ -277,6 +280,25 @@ class Graph{
             row.forEach(vertex => 
                 vertex.updateState()));
     }
+
+    updateIfEnabled(){
+        console.log(this.auto_mode);
+        if (this.auto_mode){
+            this.update();
+            console.log("lols")
+        }
+    }
+
+    updateIfEnabled(mode){
+        if(mode){
+            this.update();
+        }
+    }
+
+    toggleAutoUpdate(){
+        this.auto_mode = !this.auto_mode;
+        console.log(this.auto_mode);
+    }
 }
 
 
@@ -293,7 +315,7 @@ addEventListener("mousemove",(event) => {
             graph.activateVertexPixels(event.clientX, event.clientY);
             break;
     }
-    console.log(event.button)
+    //console.log(event.button)
 })
 
 addEventListener("click", (event) => {
@@ -310,6 +332,9 @@ addEventListener("keypress", (event) => {
         case("r"):
             graph.deactivateVertexAll();
             break;
+        case("s"):
+            graph.toggleAutoUpdate();
+            break;
     }
 })
 
@@ -317,6 +342,8 @@ function animate(){
     requestAnimationFrame(animate);
     c.clearRect(0,0,canvas.width, canvas.height);
     graph.draw();
-}
+} 
+
+setInterval(graph.updateIfEnabled, 10);
 
 animate();

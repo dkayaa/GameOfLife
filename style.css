@@ -1,0 +1,177 @@
+body{
+    margin: 0 auto;
+    background-color: var(--BODY-BG);
+    color: var(--FONT-COLOUR);
+    max-height: 100%;
+    max-width: 800px;
+    border-left: var(--BORDERS);
+    border-right: var(--BORDERS);
+    box-shadow: 0 0 10px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button{
+    font: inherit;
+}
+
+figure{
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.canvas-box{
+    overflow: scroll;
+}
+
+:root {
+    /*CSS VARIABLES*/
+
+    /* FONTS */
+    --FF: sans-serif;
+    --FS: clamp(1rem, 2.2vh, 1.5rem);
+
+    /* COLOURS */ 
+    --BG: white;
+    --BODY-BG: grey;
+    --FONT-COLOUR: black;
+    --BORDER-COLOUR: #333;
+
+    /*BORDERS*/
+    --BORDERS: 1px solid var(--BORDER-COLOUR)
+}
+
+.center{
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: var(--FS);
+    font-family: var(--FF);
+    background-color: var(--BG);
+    padding-top: 0;
+}
+
+.footer__ul{
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.graph__ul{
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;  
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: inherit;
+}
+
+.graph__ul__li{
+    display: inline;
+}
+
+.graph__ul__li__button{
+    padding: 5px;
+    border: 10px;
+    width: 100px;
+    height: 40px;
+    border: var(--BORDERS);
+    border-radius: 5px;
+}
+
+a:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Old stuff */
+/*
+.canvas-box {
+width: 100%;
+height:1000px;
+background-color: #11151C;
+overflow: scroll;
+}     
+
+.graph-area{
+  width: 100%;
+  height: 90%;
+  display:flex;
+  justify-content: center;
+  align-items: center;    
+  padding:5px;    
+}
+
+.scroll-container {
+  width: 100%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-box {
+border: 1px;
+width: 50%;
+height: 100%;        
+display:flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.title-banner{
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  padding:5px;
+}
+
+.title-container{
+  width: 50%;
+  height: 100%;
+  background-color: #273246;        
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.title-logo{
+  width:750px;
+  padding:10px;
+}
+
+.title-logo img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
+
+.footer-banner {
+  height: 5%;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  padding:5px;
+}
+
+.footer-container {
+  width: 50%;
+  text-align: center;
+}
+*/
