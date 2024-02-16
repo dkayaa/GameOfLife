@@ -36,7 +36,7 @@ figure{
     --FS: clamp(1rem, 2.2vh, 1.5rem);
 
     /* COLOURS */ 
-    --BG: white;
+    --BG: darkgrey;
     --BODY-BG: grey;
     --FONT-COLOUR: black;
     --BORDER-COLOUR: #333;
